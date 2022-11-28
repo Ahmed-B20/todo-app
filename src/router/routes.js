@@ -3,11 +3,10 @@ import PageNotFound from "@/views/PageNotFound.vue";
 import Login from "@/views/Login.vue";
 
 const routes = [
-  { path: "/", name: "home", redirect: "/home/0" },
-  { path: "/home", name: "homePage", redirect: "/home/0" },
+  { path: "/", name: "home", redirect: "/home" },
   { path: "/login", name: "login", component: Login },
   {
-    path: "/home/:taskId(\\d+)",
+    path: "/home",
     name: "task",
     component: MainContent,
     props: true,

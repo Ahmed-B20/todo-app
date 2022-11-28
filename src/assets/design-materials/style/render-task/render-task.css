@@ -118,15 +118,16 @@
     text-decoration: line-through;
 }
 
-.all-task::-webkit-scrollbar {
+.all-task .tasks::-webkit-scrollbar {
     width: 5px;
 }
 
-.all-task::-webkit-scrollbar-track {
+.all-task .tasks::-webkit-scrollbar-track {
     background: #5f73c1;
+    border-radius: 3px;
 }
 
-.all-task::-webkit-scrollbar-thumb {
-    background: #888;
+.all-task .tasks::-webkit-scrollbar-thumb {
+    background: white;
     border-radius: 3px;
 }
