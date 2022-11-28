@@ -1,5 +1,7 @@
 <template>
-  <div>list</div>
+  <div class="user-info-container">
+
+  </div>
 </template>
 
 <script>
