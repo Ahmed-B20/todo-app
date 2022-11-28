@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const userInfo = defineStore("userInfo", {
   state: () => {
     return {
-      userInfo: {
+      userInfo: JSON.parse(localStorage.getItem("allUserInfo")) || {
         createdAt: "",
         email: "",
         id: "",

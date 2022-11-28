@@ -1,0 +1,157 @@
+.pop-up-parent {
+    position: fixed;
+    z-index: 12;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: none !important;
+    background-color: #0000007d;
+}
+
+.pop-up-parent.active {
+    display: block !important;
+}
+
+.pop-up-parent .pop-up-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content {
+    background-color: #f3f3f3;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    max-width: 350px;
+    height: fit-content;
+    border-radius: 3px;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content h1.popup-title {
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content p.content {
+    font-size: 17px;
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .select-parent {
+    border: 1px solid #dfdfdf;
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .select-parent select {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .button-container button {
+    padding: 8px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .button-container button.delete {
+    background-color: #dc282b;
+    color: white;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .button-container button.close {
+    background-color: #fbfbfb;
+    color: black;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .button-container button.move {
+    color: white;
+    background-color: #007bff;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .button-container button.sort {
+    background-color: #198754;
+    color: white;
+}
+
+
+.pop-up-toggle-enter-active,
+.pop-up-toggle-leave-active {
+    transition: all 0.2s linear;
+}
+
+.pop-up-toggle-enter-from,
+.pop-up-toggle-leave-to {
+    transform: translateY(-30px);
+    opacity: 0;
+}
+
+.delay-enter-active,
+.delay-leave-active {
+    transition: all 0.5s linear;
+}
+
+.delay-enter-from,
+.delay-leave-to {
+    display: none;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content table {
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%;
+    display: block;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin-top: 15px;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content table::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.pop-up-parent .pop-up-container .pop-up-content table::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.pop-up-parent .pop-up-container .pop-up-content table::-webkit-scrollbar-thumb {
+    background-color: #5f73c1;
+
+    border-radius: 3px;
+}
+
+/* Handle on hover */
+.pop-up-parent .pop-up-container .pop-up-content table::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .custom-hr {
+    margin: 10px 0;
+    border-bottom: 1px solid #dfdfdf;
+}
