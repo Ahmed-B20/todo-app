@@ -6,20 +6,9 @@ export const statistics = defineStore("statistics", {
       statistics: JSON.parse(
         localStorage.getItem("allListAndTasksStatistics")
       ) || {
-        allList: {
-          currentList: 0,
-          allList: 0,
-        },
-        allGroupOfList: {
-          currentGroupOfList: 0,
-          allGroupOfList: 0,
-        },
-        allChildList: {
-          currentChildList: 0,
-          allChildList: 0,
-        },
         allTasks: {
-          currentTasks: 0,
+          completedTasks: 0,
+          unCompletedTasks: 0,
           allTasks: 0,
         },
       },

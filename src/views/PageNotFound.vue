@@ -1,11 +1,10 @@
 <template>
-  <div>not found</div>
+  <div class="page-not-found">
+    <h1 class="no-result">No Results Found</h1>
+  </div>
 </template>
 
 <script>
-import { mapWritableState } from "pinia";
-import { toggleAside } from "@/stores/toggleAside.js";
-
 export default {
   name: "PageNotFound",
   beforeRouteEnter(to, from, next) {
@@ -14,14 +13,6 @@ export default {
     } else {
       next({ name: "login" });
     }
-  },
-  computed: {
-    ...mapWritableState(toggleAside, ["toggleState"]),
-  },
-  methods: {
-    toggleAside() {
-      this.toggleState = !this.toggleState;
-    },
   },
 };
 </script>

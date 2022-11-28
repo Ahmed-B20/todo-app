@@ -34,7 +34,7 @@
 
         <hr class="custom-hr" />
 
-        <!-- <ToDoAnalysisVue /> -->
+        <ToDoAnalysis />
       </template>
 
       <template #button>
@@ -50,6 +50,7 @@ import { mapWritableState } from "pinia";
 import { userInfo } from "@/stores/userInfo.js";
 
 import PopUp from "../global/PopUp.vue";
+import ToDoAnalysis from "./ToDoAnalysis.vue";
 
 export default {
   name: "user-info",
@@ -60,6 +61,7 @@ export default {
   },
   components: {
     PopUp,
+    ToDoAnalysis,
   },
   computed: {
     ...mapWritableState(userInfo, ["userInfo"]),

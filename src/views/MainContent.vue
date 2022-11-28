@@ -11,6 +11,7 @@
 <script>
 import { mapWritableState } from "pinia";
 import { userInfo } from "@/stores/userInfo.js";
+import { allTasks } from "@/stores/allTasks.js";
 
 import UserInfo from "../components/user-info/UserInfo.vue";
 import RenderTask from "../components/tasks/RenderTask.vue";
@@ -25,6 +26,7 @@ export default {
   },
   computed: {
     ...mapWritableState(userInfo, ["userInfo"]),
+    ...mapWritableState(allTasks, ["allTasks"]),
   },
   beforeRouteEnter(to, from, next) {
     if (JSON.parse(localStorage.getItem("allUserInfo"))) {
@@ -45,6 +47,7 @@ export default {
         json.forEach((task) => {
           if (task.userId === this.userInfo.id) {
             this.allUserTasks.push(task);
+            this.allTasks.push(task)
           }
         });
       });
@@ -52,9 +55,11 @@ export default {
   methods: {
     updateArray(index, newTask){
       this.allUserTasks.splice(index, 1, newTask);
+      this.allTasks.splice(index, 1, newTask);
     },
     addTask(newTask){
       this.allUserTasks.push(newTask)
+      this.allTasks.push(newTask)
     },
   },
 };
