@@ -26,22 +26,9 @@
 export default {
   name: "render-tasks",
   data() {
-    return {
-      allUserTasks: [],
-    };
+    return {};
   },
-  props: ["id"],
-  beforeMount() {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((json) => {
-        json.forEach((task) => {
-          if (task.userId === +this.id) {
-            this.allUserTasks.push(task);
-          }
-        });
-      });
-  },
+  props: ["id", "allUserTasks"],
   methods: {
     completeTask(task) {
       fetch(`https://jsonplaceholder.typicode.com/todos/${task.id}`, {
@@ -60,7 +47,7 @@ export default {
         .then((json) => {
           this.allUserTasks.forEach((userTask, index) => {
             if (userTask.id === task.id) {
-              this.allUserTasks.splice(index, 1, json);
+              this.$emit("updateTasksArray", index, json);
             }
           });
         });

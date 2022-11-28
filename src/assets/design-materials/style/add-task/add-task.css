@@ -3,6 +3,13 @@
     flex-direction: column;
 }
 
+@media (max-width: 768px) {
+    .user-info-container {
+        width: 90%;
+        height: 90vh;
+    }
+}
+
 .user-info-container .add-task {
     padding: 5px 0;
 }
