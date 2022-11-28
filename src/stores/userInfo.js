@@ -12,7 +12,7 @@ export const userInfo = defineStore("userInfo", {
     };
   },
   getters: {
-    userInfo(state) {
+    returnUserInfo(state) {
       return state.userInfo;
     },
   },

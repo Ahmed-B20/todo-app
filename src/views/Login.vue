@@ -28,11 +28,30 @@
             </div>
         </div>
     </div>
+
+    <transition name="toggle-opacity">
+      <info-message v-if="toggleInfoMessage" :info="info" :hint='hint' :check='check'>
+          <template #warningIcon>
+              <img :src="src" alt="warning icon">
+          </template>
+
+          <template #warningMessage>
+              <p>{{ warningMessage }}</p>
+          </template>
+
+          <template #closeWarning>
+              <img class="close" @click="closeWarning" src="@/assets/design-materials/icons/close.png" alt="close icon">
+          </template>
+      </info-message>
+    </transition>
 </template>
 
 <script>
-import { userInfo } from '@/stores/userInfo.js'
-import { mapWritableState } from 'pinia'
+import { mapWritableState } from "pinia";
+import { userInfo } from "@/stores/userInfo.js";
+import { allUsers } from "@/stores/allUsers.js";
+
+import InfoMessage from "../components/global/InfoMessage.vue";
 
 export default {
   name: "login-form",
@@ -40,36 +59,104 @@ export default {
     return {
       userName: "",
       email: "",
+      toggleInfoMessage: false,
+      src: "",
+      warningMessage: "",
+      info: false,
+      hint: false,
+      check: false,
+      userState: false,
+      emailState: false,
     };
   },
-  computed:{
-    ...mapWritableState(userInfo, ['userInfo']),
+  components: {
+    InfoMessage,
+  },
+  computed: {
+    ...mapWritableState(userInfo, ["userInfo"]),
+    ...mapWritableState(allUsers, ["allUsers"]),
+  },
+  beforeMount() {
+    fetch("https://reqres.in/api/users")
+      .then((response) => response.json())
+      .then((data) => {
+        this.allUsers = data;
+        console.log(this.allUsers);
+      });
   },
   methods: {
+    closeWarning() {
+      this.toggleInfoMessage = false;
+    },
     checkAuthentication() {
-      if (!!this.userName && this.email) {
-        fetch("https://reqres.in/api/users/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            userName: this.userName,
-            email: this.email,
-          }),
-        })
-          .then((response) => {
-            if (response.ok) {
-              return response.json();
-            }
-            throw new Error("Something went wrong");
-          })
-          .then((responseJson) => {
-            console.log(responseJson);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+      if (this.userState && this.emailState) {
+        // fetch("https://reqres.in/api/users/login", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify({
+        //     userName: this.userName,
+        //     email: this.email,
+        //   }),
+        // })
+        //   .then((response) => {
+        //     if (response.ok) {
+        //       return response.json();
+        //     }
+        //     throw new Error("Something went wrong try again later");
+        //   })
+        //   .then((responseJson) => {
+        //     console.log(responseJson);
+        //     this.userInfo = responseJson;
+        //     for (const [key, value] of Object.entries(responseJson)) {
+        //       this.userInfo[`${key}`] = value;
+        //     }
+        //     console.log(this.userInfo);
+        //   })
+        //   .catch((error) => {
+        //     // console.log(error);
+        //     this.toggleInfoMessage = true
+        //     this.warningMessage = error
+        //     this.src = '/src/assets/design-material/icons/warning.png'
+        //     this.info = true
+        //     this.hint = false
+        //     this.check = false
+        //   });
+
+        console.log("work");
+      } else {
+        this.toggleInfoMessage = true;
+        this.warningMessage = "wrong username or email";
+        this.src = "/src/assets/design-materials/icons/warning.png";
+        this.info = false;
+        this.hint = false;
+        this.check = false;
       }
     },
+  },
+  watch: {
+    userName() {
+      this.allUsers.data.forEach((user) => {
+        if (user.first_name === this.userName) {
+          this.userState = true;
+        } else {
+          this.userState = false;
+        }
+      });
+    },
+    email() {
+      this.allUsers.data.forEach((user) => {
+        if (user.email === this.email) {
+          this.emailState = true;
+        } else {
+          this.emailState = false;
+        }
+      });
+    },
+    toggleInfoMessage(){
+      setTimeout(()=>{
+        this.toggleInfoMessage = false
+      }, 3000)
+    }
   },
 };
 </script>

@@ -2,4 +2,6 @@
   <div>list</div>
 </template>
 
-<script></script>
+<script>
+  
+</script>
