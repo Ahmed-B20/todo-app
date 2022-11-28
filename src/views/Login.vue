@@ -67,6 +67,7 @@ export default {
       check: false,
       userState: false,
       emailState: false,
+      allUserInfo: [],
     };
   },
   components: {
@@ -75,6 +76,13 @@ export default {
   computed: {
     ...mapWritableState(userInfo, ["userInfo"]),
     ...mapWritableState(allUsers, ["allUsers"]),
+  },
+  beforeRouteEnter(to, from, next) {
+    if (JSON.parse(localStorage.getItem("allUserInfo"))) {
+      next({ name: "home" });
+    } else {
+      next();
+    }
   },
   beforeMount() {
     fetch("https://reqres.in/api/users")
@@ -122,7 +130,11 @@ export default {
         //     this.check = false
         //   });
 
-        console.log("work");
+        localStorage.setItem("allUserInfo", JSON.stringify(this.allUserInfo));
+        for (const [key, value] of Object.entries(this.allUserInfo)) {
+          this.userInfo[`${key}`] = value;
+        }
+        this.$router.push({ name: "home" });
       } else {
         this.toggleInfoMessage = true;
         this.warningMessage = "wrong username or email";
@@ -147,16 +159,18 @@ export default {
       this.allUsers.data.forEach((user) => {
         if (user.email === this.email) {
           this.emailState = true;
+          this.allUserInfo = user;
         } else {
-          this.emailState = false;
+          this.allUserInfo = false;
+          this.userInfo = [];
         }
       });
     },
-    toggleInfoMessage(){
-      setTimeout(()=>{
-        this.toggleInfoMessage = false
-      }, 3000)
-    }
+    toggleInfoMessage() {
+      setTimeout(() => {
+        this.toggleInfoMessage = false;
+      }, 3000);
+    },
   },
 };
 </script>
