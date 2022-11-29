@@ -49,6 +49,11 @@
   overflow: hidden;
   margin-right: 5px;
 }
+@media (max-width: 768px) {
+  .all-task .tasks li {
+    min-height: 75px;
+  }
+}
 .all-task .tasks li .task-main-info {
   height: 100%;
 }
@@ -90,6 +95,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  min-width: 45px;
 }
 .all-task .tasks li .icons-container img {
   height: 20px;
@@ -194,6 +200,12 @@ img.close {
   width: 65%;
   padding: 20px;
 }
+@media (max-width: 768px) {
+  .user-info-container {
+    -webkit-backdrop-filter: unset;
+            backdrop-filter: unset;
+  }
+}
 
 .user-info-parent {
   display: flex;
@@ -279,7 +291,6 @@ img.close {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  min-width: 250px;
   max-width: 350px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
