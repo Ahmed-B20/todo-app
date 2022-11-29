@@ -1,3 +1,10 @@
-@import url('./render-task/_render-task.scss');
-@import url('./info-message/_info-message.scss');
+@use './normalize';
+@use './render-task/render-task';
+@use './info-message/info-message';
+@use './main-content/main-content';
+@use './main-content/user-info';
+@use './page-not-found/page-not-found';
+@use './popup/popup';
+@use './login/login';
+@use './add-task/add-task';
 
