@@ -49,7 +49,7 @@
 import { mapWritableState } from "pinia";
 import { userInfo } from "@/stores/userInfo.js";
 
-import PopUp from "../global/PopUp.vue";
+import PopUp from "@/components/global/PopUp.vue";
 import ToDoAnalysis from "./ToDoAnalysis.vue";
 
 export default {

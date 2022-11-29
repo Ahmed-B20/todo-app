@@ -2,7 +2,7 @@
   <div class="user-info-container">
     <UserInfo />
 
-    <RenderTask :id="userInfo.id" :allUserTasks="allUserTasks" @updateTasksArray="updateArray" />
+    <RenderTask :id="userInfo.id" :allUserTasks="allUserTasks" @deleteTasksArray="deleteTask" @updateTasksArray="updateArray" />
 
     <AddTask :id="userInfo.id" :allUserTasks="allUserTasks" @addNewTask="addTask" />
   </div>
@@ -60,6 +60,10 @@ export default {
     addTask(newTask){
       this.allUserTasks.push(newTask)
       this.allTasks.push(newTask)
+    },
+    deleteTask(index){
+      this.allUserTasks.splice(index, 1);
+      this.allTasks.splice(index, 1);
     },
   },
 };

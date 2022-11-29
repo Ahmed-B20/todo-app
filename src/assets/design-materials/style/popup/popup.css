@@ -141,3 +141,35 @@
 .pop-up-parent .pop-up-container .pop-up-content table tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.pop-up-parent .pop-up-container .pop-up-content .rename {
+    margin-top: 10px;
+    background-color: white;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .rename input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content .rename input.error {
+    border-color: red;
+    animation: shake 0.1s linear;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

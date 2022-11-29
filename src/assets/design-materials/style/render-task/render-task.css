@@ -118,6 +118,20 @@
     text-decoration: line-through;
 }
 
+.all-task .tasks li .icons-container {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.all-task .tasks li .icons-container img {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
 .all-task .tasks::-webkit-scrollbar {
     width: 5px;
 }
