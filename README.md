@@ -1,35 +1,68 @@
-# todo-task
+# 🚀 Simple ToDo
 
-This template should help get you started developing with Vue 3 in Vite.
+A Simple ToDo Task With Simple Functionality
 
-## Recommended IDE Setup
+## 📝 Description
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+✴️ **User Can Do The Following:**
 
-## Customize configuration
+- Login in and logout.
+- Create a new tasks belong account.
+- deletes tasks belong account.
+- View tasks belong account.
+- Update tasks belong account.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## 💎 Technologies
 
-## Project Setup
+1. Html / Css / Js / Sass / Tailwind
+2. Vue.js 3 / Vue router / Pinia
 
-```sh
+## ⚙️ Installation
+
+**Step 1:** Install dependencies.
+
+```shell
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+**Step 2:** Run The App
 
-```sh
+```shell
 npm run dev
 ```
+### 1. File Structures(inside src folder)
 
-### Compile and Minify for Production
+| #   | Name                | Content                       |
+| --- | ------------------- | ----------------------------- |
+| 1   | design-materials    | All Css, Icons and images     |
+| 2   | components          | All Reusable Components       |
+| 3   | Router              | Routes Of All Pages           |
+| 4   | Stores              | Stores For Saving Global Data |
+| 4   | Views               | Main Page                     |
 
-```sh
-npm run build
-```
+### 2. Routes Pages
 
-### Lint with [ESLint](https://eslint.org/)
+| #   | Page Name   | URL                           |
+| --- | ----------- | ------------------------------|
+| 1   | `Login`     | `/url/login`                  |
+| 2   | `Home`      | `/url/home`                   |
+| 3   | `Not Found` | `/url/notfound`               |
 
-```sh
-npm run lint
-```
+#### 2.1. Used API
+
+| #   | HTTP Request          | URL                                           |
+| --- | --------------------- | --------------------------------------------- |
+| 1   | `For Users Login`     | `https://reqres.in/api/users`                 |
+| 2   | `For Users Data`      | `https://jsonplaceholder.typicode.com/todos`  |
+
+##### 2.2. All request and api routes
+
+| #   | HTTP Method | URL                                                             |
+| --- | ----------- | --------------------------------------------------------------- |
+| 1   | `PUT`       | `https://jsonplaceholder.typicode.com/todos/${id}`              |
+| 2   | `DELETE`    | `https://jsonplaceholder.typicode.com/todos/${id}`              |
+| 3   | `POST`      | `https://jsonplaceholder.typicode.com/todos/`                   |
+| 4   | `GET`       | `https://jsonplaceholder.typicode.com/todos`                    |
+| 5   | `GET`       | `https://reqres.in/api/users`                                   |
+| 6   | `POST`      | `https://reqres.in/api/login`                                   |
+
