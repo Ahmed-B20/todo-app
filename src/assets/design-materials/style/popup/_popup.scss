@@ -133,6 +133,12 @@
                     border-radius: 3px;
                     padding: 5px;
 
+                    @media (max-width:768px) {
+                        &{
+                            width: 280px;
+                        }
+                    }
+
                     &.error {
                         border-color: red;
                         animation: shake 0.1s linear;

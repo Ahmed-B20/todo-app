@@ -389,6 +389,11 @@ img.close {
   border-radius: 3px;
   padding: 5px;
 }
+@media (max-width: 768px) {
+  .pop-up-parent .pop-up-container .pop-up-content .rename input {
+    width: 280px;
+  }
+}
 .pop-up-parent .pop-up-container .pop-up-content .rename input.error {
   border-color: red;
   -webkit-animation: shake 0.1s linear;
