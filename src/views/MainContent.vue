@@ -29,7 +29,17 @@ export default {
     ...mapWritableState(allTasks, ["allTasks"]),
   },
   beforeRouteEnter(to, from, next) {
-    if (JSON.parse(localStorage.getItem("allUserInfo"))) {
+    let allCookies = document.cookie.split(';')
+    let userData
+
+    allCookies.forEach((cooke)=>{
+      if (cooke.includes('email') && cooke.includes('first_name')&& cooke.includes('last_name')) {
+        userData = JSON.parse(cooke)
+      }
+    })
+
+    // if (JSON.parse(localStorage.getItem("allUserInfo"))) {
+    if (!!userData) {
       next();
     } else {
       next({ name: "login" });
@@ -41,6 +51,19 @@ export default {
     AddTask,
   },
   beforeMount() {
+    let allCookies = document.cookie.split(';')
+    let userData
+
+    allCookies.forEach((cooke)=>{
+      if (cooke.includes('email') && cooke.includes('first_name')&& cooke.includes('last_name')) {
+        userData = JSON.parse(cooke)
+      }
+    })
+
+    for (const [key, value] of Object.entries(userData)) {
+          this.userInfo[`${key}`] = value;
+    }
+
     fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((json) => {

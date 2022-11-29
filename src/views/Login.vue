@@ -97,7 +97,8 @@ export default {
     },
     checkAuthentication() {
       if (this.userState && this.emailState) {
-        localStorage.setItem("allUserInfo", JSON.stringify(this.allUserInfo));
+        // localStorage.setItem("allUserInfo", JSON.stringify(this.allUserInfo));
+        document.cookie = JSON.stringify(this.allUserInfo)
         for (const [key, value] of Object.entries(this.allUserInfo)) {
           this.userInfo[`${key}`] = value;
         }
