@@ -89,7 +89,6 @@ export default {
       .then((response) => response.json())
       .then((data) => {
         this.allUsers = data;
-        console.log(this.allUsers);
       });
   },
   methods: {
@@ -98,38 +97,6 @@ export default {
     },
     checkAuthentication() {
       if (this.userState && this.emailState) {
-        // fetch("https://reqres.in/api/users/login", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify({
-        //     userName: this.userName,
-        //     email: this.email,
-        //   }),
-        // })
-        //   .then((response) => {
-        //     if (response.ok) {
-        //       return response.json();
-        //     }
-        //     throw new Error("Something went wrong try again later");
-        //   })
-        //   .then((responseJson) => {
-        //     console.log(responseJson);
-        //     this.userInfo = responseJson;
-        //     for (const [key, value] of Object.entries(responseJson)) {
-        //       this.userInfo[`${key}`] = value;
-        //     }
-        //     console.log(this.userInfo);
-        //   })
-        //   .catch((error) => {
-        //     // console.log(error);
-        //     this.toggleInfoMessage = true
-        //     this.warningMessage = error
-        //     this.src = '/src/assets/design-material/icons/warning.png'
-        //     this.info = true
-        //     this.hint = false
-        //     this.check = false
-        //   });
-
         localStorage.setItem("allUserInfo", JSON.stringify(this.allUserInfo));
         for (const [key, value] of Object.entries(this.allUserInfo)) {
           this.userInfo[`${key}`] = value;
