@@ -17,7 +17,7 @@
         <td>{{unCompletedTasks}}</td>
       </tr>
       <tr>
-        <td colspan="2">{{allTasks.length}}</td>
+        <td colspan="2" class="text-center">{{allTasks.length}}</td>
       </tr>
     </tbody>
   </table>
