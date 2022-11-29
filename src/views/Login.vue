@@ -147,24 +147,26 @@ export default {
   },
   watch: {
     userName() {
-      this.allUsers.data.forEach((user) => {
+      for (const user of this.allUsers.data) {
         if (user.first_name === this.userName) {
           this.userState = true;
+          break;
         } else {
           this.userState = false;
         }
-      });
+      }
     },
     email() {
-      this.allUsers.data.forEach((user) => {
+      for (const user of this.allUsers.data) {
         if (user.email === this.email) {
           this.emailState = true;
           this.allUserInfo = user;
+          break
         } else {
           this.allUserInfo = false;
           this.userInfo = [];
         }
-      });
+      }
     },
     toggleInfoMessage() {
       setTimeout(() => {
