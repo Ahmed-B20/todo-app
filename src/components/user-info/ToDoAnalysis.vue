@@ -30,6 +30,9 @@ import { allTasks } from "@/stores/allTasks.js";
 export default {
   name: "ToDoAnalysis",
   beforeMount() {
+    this.completedTasks = 0
+    this.unCompletedTasks = 0
+    
     this.allTasks.forEach((task) => {
       if (task.completed) {
         this.completedTasks++

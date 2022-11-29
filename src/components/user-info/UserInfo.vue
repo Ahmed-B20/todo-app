@@ -48,6 +48,7 @@
 <script>
 import { mapWritableState } from "pinia";
 import { userInfo } from "@/stores/userInfo.js";
+import { allTasks } from "@/stores/allTasks.js";
 
 import PopUp from "@/components/global/PopUp.vue";
 import ToDoAnalysis from "./ToDoAnalysis.vue";
@@ -65,6 +66,7 @@ export default {
   },
   computed: {
     ...mapWritableState(userInfo, ["userInfo"]),
+    ...mapWritableState(allTasks, ["allTasks"]),
   },
   methods: {
     toggleUserInfo() {
@@ -72,6 +74,7 @@ export default {
     },
     logout(){
       localStorage.removeItem("allUserInfo");
+      this.allTasks = []
       this.$router.push({ name: "login" });
     }
   },
