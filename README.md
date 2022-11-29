@@ -66,3 +66,15 @@ npm run dev
 | 5   | `GET`       | `https://reqres.in/api/users`                                   |
 | 6   | `POST`      | `https://reqres.in/api/login`                                   |
 
+
+##### 3 All List Of Users
+
+| #   | Username    | Email                      |
+| --- | ----------- | -------------------------- |
+| 1   | `George`    | `george.bluth@reqres.in`   |
+| 2   | `Janet`     | `janet.weaver@reqres.in`   |
+| 3   | `Emma`      | `emma.wong@reqres.in`      |
+| 4   | `Eve`       | `eve.holt@reqres.in`       |
+| 5   | `Charles`   | `charles.morris@reqres.in` |
+| 6   | `Tracey`    | `tracey.ramos@reqres.in`   |
+
