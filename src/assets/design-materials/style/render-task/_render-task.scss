@@ -41,6 +41,15 @@
             overflow: hidden;
             margin-right: 5px;
 
+            .task-main-info {
+                height: 100%;
+                .task-name {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
             &.complete {
                 color: red;
                 .check {
