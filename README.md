@@ -67,7 +67,7 @@ npm run dev
 | 6   | `POST`      | `https://reqres.in/api/login`                                   |
 
 
-##### 3 All List Of Users
+##### 3. All List Of Users
 
 | #   | Username    | Email                      |
 | --- | ----------- | -------------------------- |
