@@ -7,9 +7,9 @@
             <slot name="title"></slot>
           </h1>
 
-          <p class="content">
+          <div class="content">
             <slot name="content"></slot>
-          </p>
+          </div>
 
           <div class="button-container">
             <slot name="button"></slot>
