@@ -186,6 +186,11 @@ img.close {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px;
+  }
+}
 
 .user-info-container {
   border: 0.1rem solid rgba(255, 255, 255, 0.1);
@@ -580,8 +585,8 @@ img.close {
 }
 @media (max-width: 768px) {
   .user-info-container {
-    width: 90%;
-    height: 90vh;
+    width: 100%;
+    height: 100%;
   }
 }
 .user-info-container .add-task {
