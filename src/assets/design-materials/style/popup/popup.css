@@ -131,10 +131,15 @@
     margin-top: 10px;
 }
 
-.pop-up-parent .pop-up-container .pop-up-content table td,
+.pop-up-parent .pop-up-container .pop-up-content table td:not(td.text-center),
 .pop-up-parent .pop-up-container .pop-up-content table th {
     border: 1px solid #dddddd;
     text-align: left;
+    padding: 8px;
+}
+
+.pop-up-parent .pop-up-container .pop-up-content table td{
+    border: 1px solid #dddddd;
     padding: 8px;
 }
 
