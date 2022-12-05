@@ -2,7 +2,8 @@
   <div class="user-info-container">
     <UserInfo />
 
-    <RenderTask :id="userInfo.id" :allUserTasks="allUserTasks" @deleteTasksArray="deleteTask" @updateTasksArray="updateArray" />
+    <RenderTask :id="userInfo.id" :allUserTasks="allUserTasks" @deleteTasksArray="deleteTask"
+      @updateTasksArray="updateArray" />
 
     <AddTask :id="userInfo.id" :allUserTasks="allUserTasks" @addNewTask="addTask" />
   </div>
@@ -32,8 +33,8 @@ export default {
     let allCookies = document.cookie.split(';')
     let userData
 
-    allCookies.forEach((cooke)=>{
-      if (cooke.includes('email') && cooke.includes('first_name')&& cooke.includes('last_name')) {
+    allCookies.forEach((cooke) => {
+      if (cooke.includes('email') && cooke.includes('first_name') && cooke.includes('last_name')) {
         userData = JSON.parse(cooke)
       }
     })
@@ -54,37 +55,33 @@ export default {
     let allCookies = document.cookie.split(';')
     let userData
 
-    allCookies.forEach((cooke)=>{
-      if (cooke.includes('email') && cooke.includes('first_name')&& cooke.includes('last_name')) {
+    allCookies.forEach((cooke) => {
+      if (cooke.includes('email') && cooke.includes('first_name') && cooke.includes('last_name')) {
         userData = JSON.parse(cooke)
       }
     })
 
     for (const [key, value] of Object.entries(userData)) {
-          this.userInfo[`${key}`] = value;
+      this.userInfo[`${key}`] = value;
     }
 
-    fetch("https://jsonplaceholder.typicode.com/todos")
+    fetch(`https://jsonplaceholder.typicode.com/todos?userId=${this.userInfo.id}`)
       .then((response) => response.json())
       .then((json) => {
-        json.forEach((task) => {
-          if (task.userId === this.userInfo.id) {
-            this.allUserTasks.push(task);
-            this.allTasks.push(task)
-          }
-        });
+        this.allUserTasks = json
+        this.allTasks = json
       });
   },
   methods: {
-    updateArray(index, newTask){
+    updateArray(index, newTask) {
       this.allUserTasks.splice(index, 1, newTask);
       this.allTasks.splice(index, 1, newTask);
     },
-    addTask(newTask){
+    addTask(newTask) {
       this.allUserTasks.push(newTask)
       this.allTasks.push(newTask)
     },
-    deleteTask(index){
+    deleteTask(index) {
       this.allUserTasks.splice(index, 1);
       this.allTasks.splice(index, 1);
     },
