@@ -96,22 +96,6 @@ export default {
       this.toggleInfoMessage = false;
     },
     checkAuthentication() {
-      // if (this.userState && this.emailState) {
-      //   // localStorage.setItem("allUserInfo", JSON.stringify(this.allUserInfo));
-      //   document.cookie = JSON.stringify(this.allUserInfo)
-      //   for (const [key, value] of Object.entries(this.allUserInfo)) {
-      //     this.userInfo[`${key}`] = value;
-      //   }
-      //   this.$router.push({ name: "home" });
-      // } else {
-      //   this.toggleInfoMessage = true;
-      //   this.warningMessage = "wrong username or email";
-      //   this.src = "/src/assets/design-materials/icons/warning.png";
-      //   this.info = false;
-      //   this.hint = false;
-      //   this.check = false;
-      // }
-
       fetch("https://reqres.in/api/login", {
         method: "POST",
         body: JSON.stringify({
